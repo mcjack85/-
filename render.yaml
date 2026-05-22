@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: incardirect-winners-landing
+    runtime: python
+    plan: free
+    buildCommand: ""
+    startCommand: "python server.py"
+    envVars:
+      - key: ADMIN_KEY
+        generateValue: true
