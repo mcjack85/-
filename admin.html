@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 | 인카다이렉트 위너스지사</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0A0E27;
+  --navy-2: #131840;
+  --blue: #2D4FFF;
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  --gold: #FFD96B;
+  --text: #E8EAF6;
+  --text-mute: #8B92B8;
+  --line: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.04);
+  --grad: linear-gradient(135deg, #2D4FFF 0%, #7C3AED 100%);
+  --green: #22c55e;
+  --red: #ef4444;
+}
+body {
+  font-family: -apple-system, 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── 로그인 화면 ── */
+.login-wrap {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.login-card {
+  width: 100%; max-width: 380px;
+  padding: 40px 32px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-align: center;
+}
+.login-logo {
+  font-size: 18px; font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.login-logo span {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.login-sub {
+  font-size: 13px; color: var(--text-mute);
+  margin-bottom: 32px;
+}
+.login-field { margin-bottom: 16px; text-align: left; }
+.login-field label {
+  display: block; font-size: 12px; font-weight: 600;
+  margin-bottom: 8px; color: var(--text-mute);
+}
+.login-field input {
+  width: 100%; padding: 14px 16px;
+  background: rgba(10,14,39,0.8);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text); font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.login-field input:focus {
+  outline: none; border-color: var(--purple-light);
+}
+.login-btn {
+  width: 100%; padding: 15px;
+  background: var(--grad);
+  color: white; border: none;
+  border-radius: 10px; font-size: 15px;
+  font-weight: 700; cursor: pointer;
+  font-family: inherit; margin-top: 8px;
+  transition: opacity 0.2s;
+}
+.login-btn:hover { opacity: 0.9; }
+.login-error {
+  margin-top: 14px; padding: 10px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 8px;
+  font-size: 13px; color: #fca5a5;
+  display: none;
+}
+
+/* ── 관리자 대시보드 ── */
+.admin { display: none; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10,14,39,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-logo { font-size: 15px; font-weight: 800; }
+.topbar-logo span {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.badge-live {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 100px;
+  font-size: 11px; font-weight: 600; color: var(--green);
+}
+.badge-live::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.logout-btn {
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text-mute); font-size: 12px;
+  cursor: pointer; font-family: inherit;
+  transition: border-color 0.2s, color 0.2s;
+}
+.logout-btn:hover { border-color: var(--purple-light); color: var(--text); }
+
+.main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+/* 통계 카드 */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px; margin-bottom: 28px;
+}
+.stat-card {
+  padding: 22px 20px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.stat-card-label {
+  font-size: 11px; font-weight: 600;
+  color: var(--text-mute); letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.stat-card-num {
+  font-size: 32px; font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-card-sub {
+  font-size: 11px; color: var(--text-mute);
+  margin-top: 6px;
+}
+
+/* 테이블 영역 */
+.table-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap; gap: 10px;
+}
+.table-title {
+  font-size: 16px; font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.table-actions { display: flex; gap: 8px; }
+.action-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+  border: 1px solid var(--line);
+  background: var(--card); color: var(--text);
+  transition: border-color 0.2s;
+}
+.action-btn:hover { border-color: var(--purple-light); }
+.action-btn.primary {
+  background: var(--grad);
+  border-color: transparent; color: white;
+}
+
+.search-bar {
+  margin-bottom: 14px;
+}
+.search-bar input {
+  width: 100%; max-width: 320px;
+  padding: 10px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text); font-size: 13px;
+  font-family: inherit;
+}
+.search-bar input:focus { outline: none; border-color: var(--purple-light); }
+.search-bar input::placeholder { color: var(--text-mute); }
+
+.table-wrap {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+thead tr {
+  background: rgba(45,79,255,0.08);
+  border-bottom: 1px solid var(--line);
+}
+thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 11px; font-weight: 700;
+  color: var(--purple-light);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+tbody tr {
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+tbody td {
+  padding: 13px 16px;
+  color: var(--text);
+  white-space: nowrap;
+}
+tbody td.name { font-weight: 600; }
+tbody td.phone {
+  font-family: 'Courier New', monospace;
+  color: var(--gold); letter-spacing: 0.03em;
+}
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+}
+.tag-new {
+  background: rgba(34,197,94,0.15);
+  color: var(--green);
+  border: 1px solid rgba(34,197,94,0.3);
+}
+.tag-region {
+  background: rgba(167,139,250,0.15);
+  color: var(--purple-light);
+  border: 1px solid rgba(167,139,250,0.2);
+}
+.tag-career {
+  background: rgba(255,217,107,0.12);
+  color: var(--gold);
+  border: 1px solid rgba(255,217,107,0.2);
+}
+.empty-state {
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--text-mute);
+}
+.empty-state .icon { font-size: 48px; margin-bottom: 14px; }
+.empty-state p { font-size: 15px; }
+
+/* 로딩 */
+.loading {
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--text-mute);
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--line);
+  border-top-color: var(--purple-light);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 페이지네이션 */
+.pagination {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 16px;
+  font-size: 13px; color: var(--text-mute);
+  flex-wrap: wrap; gap: 10px;
+}
+.page-btns { display: flex; gap: 6px; }
+.page-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--card); color: var(--text);
+  font-size: 12px; cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.page-btn:hover { border-color: var(--purple-light); }
+.page-btn.active {
+  background: var(--grad);
+  border-color: transparent; color: white;
+}
+.page-btn:disabled {
+  opacity: 0.3; cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .main { padding: 20px 14px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .table-header { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── 로그인 화면 ── -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <div class="login-logo">인카다이렉트 <span>위너스</span></div>
+    <p class="login-sub">관리자 페이지</p>
+
+    <div class="login-field">
+      <label>비밀번호</label>
+      <input type="password" id="passwordInput" placeholder="관리자 비밀번호 입력"
+        onkeydown="if(event.key==='Enter') login()">
+    </div>
+    <button class="login-btn" onclick="login()">로그인</button>
+    <div class="login-error" id="loginError">비밀번호가 올바르지 않습니다.</div>
+  </div>
+</div>
+
+<!-- ── 관리자 대시보드 ── -->
+<div class="admin" id="adminPanel">
+  <div class="topbar">
+    <div class="topbar-logo">인카다이렉트 <span>위너스</span> 관리자</div>
+    <div class="topbar-right">
+      <div class="badge-live">LIVE</div>
+      <button class="logout-btn" onclick="logout()">로그아웃</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- 통계 카드 -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-card-label">전체 신청</div>
+        <div class="stat-card-num" id="statTotal">—</div>
+        <div class="stat-card-sub">누적 상담 신청 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">오늘 신청</div>
+        <div class="stat-card-num" id="statToday">—</div>
+        <div class="stat-card-sub" id="statTodayDate">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">이번 주</div>
+        <div class="stat-card-num" id="statWeek">—</div>
+        <div class="stat-card-sub">최근 7일 신청 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">신입 비율</div>
+        <div class="stat-card-num" id="statNewbie">—</div>
+        <div class="stat-card-sub">경력 없음 신청자</div>
+      </div>
+    </div>
+
+    <!-- 테이블 -->
+    <div class="table-header">
+      <div class="table-title">상담 신청 목록</div>
+      <div class="table-actions">
+        <button class="action-btn" onclick="refreshData()">↻ 새로고침</button>
+        <button class="action-btn primary" onclick="exportCSV()">CSV 내보내기</button>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="이름, 연락처, 지역으로 검색..."
+        oninput="renderTable()">
+    </div>
+
+    <div class="table-wrap">
+      <div class="loading" id="loadingState">
+        <div class="spinner"></div>
+        <p>데이터 불러오는 중...</p>
+      </div>
+      <div id="tableArea" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>접수시간</th>
+              <th>이름</th>
+              <th>연락처</th>
+              <th>거주지역</th>
+              <th>경력</th>
+              <th>희망시간</th>
+              <th>유입경로</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <div class="icon">📋</div>
+          <p>신청 내역이 없습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination" id="pagination" style="display:none;">
+      <span id="pageInfo"></span>
+      <div class="page-btns" id="pageBtns"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ⚙️ 여기에 Google Apps Script 웹 앱 URL을 입력하세요
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzua014sTXl_5pYqHnkAXlvGJBeGlNVbAgfFUgSd5AlsCmF9rGqwtbJRuTg0-60PZw/exec';
+
+const PAGE_SIZE = 20;
+let allData = [];
+let currentPage = 1;
+let adminPassword = '';
+
+// ── 로그인 ──
+function login() {
+  const pw = document.getElementById('passwordInput').value.trim();
+  if (!pw) return;
+
+  adminPassword = pw;
+  document.getElementById('loginError').style.display = 'none';
+  loadData();
+}
+
+function logout() {
+  adminPassword = '';
+  allData = [];
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('passwordInput').value = '';
+}
+
+// ── 데이터 로드 ──
+async function loadData() {
+  try {
+    const res = await fetch(`${SCRIPT_URL}?password=${encodeURIComponent(adminPassword)}`);
+    const json = await res.json();
+
+    if (json.status === 'unauthorized') {
+      document.getElementById('loginError').style.display = 'block';
+      adminPassword = '';
+      return;
+    }
+
+    if (json.status !== 'success') throw new Error(json.message);
+
+    // 로그인 성공 → 대시보드 표시
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('tableArea').style.display = 'block';
+
+    allData = json.data || [];
+    updateStats(json.total || 0, json.today || 0);
+    renderTable();
+
+  } catch (err) {
+    alert('데이터를 불러오지 못했습니다.\nApps Script URL을 확인해주세요.\n\n' + err.message);
+  }
+}
+
+function refreshData() {
+  document.getElementById('loadingState').style.display = 'block';
+  document.getElementById('tableArea').style.display = 'none';
+  document.getElementById('pagination').style.display = 'none';
+  loadData();
+}
+
+// ── 통계 업데이트 ──
+function updateStats(total, today) {
+  document.getElementById('statTotal').textContent = total.toLocaleString();
+  document.getElementById('statToday').textContent = today.toLocaleString();
+
+  const now = new Date();
+  const dateStr = `${now.getMonth()+1}월 ${now.getDate()}일`;
+  document.getElementById('statTodayDate').textContent = dateStr + ' 기준';
+
+  // 이번 주 (최근 7일)
+  const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+  const weekStr = weekAgo.toISOString().slice(0, 10);
+  const weekCount = allData.filter(r => String(r['접수시간']) >= weekStr).length;
+  document.getElementById('statWeek').textContent = weekCount.toLocaleString();
+
+  // 신입 비율
+  const newbieCount = allData.filter(r => r['경력'] === '없음 (신입)').length;
+  const pct = total > 0 ? Math.round(newbieCount / total * 100) : 0;
+  document.getElementById('statNewbie').textContent = pct + '%';
+}
+
+// ── 테이블 렌더링 ──
+function renderTable() {
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  const filtered = allData.filter(r => {
+    if (!keyword) return true;
+    return (
+      String(r['이름']).toLowerCase().includes(keyword) ||
+      String(r['연락처']).includes(keyword) ||
+      String(r['거주지역']).toLowerCase().includes(keyword)
+    );
+  });
+
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  currentPage = Math.min(currentPage, totalPages);
+
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageData = filtered.slice(start, start + PAGE_SIZE);
+
+  const tbody = document.getElementById('tableBody');
+  const empty = document.getElementById('emptyState');
+
+  if (pageData.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    document.getElementById('pagination').style.display = 'none';
+    return;
+  }
+
+  empty.style.display = 'none';
+  tbody.innerHTML = pageData.map((r, i) => {
+    const rowNum = total - start - i;
+    const isToday = isNewToday(r['접수시간']);
+    return `
+      <tr>
+        <td style="color:var(--text-mute);font-size:11px;">${rowNum}</td>
+        <td style="font-size:12px;color:var(--text-mute);">${formatTime(r['접수시간'])}${isToday ? ' <span class="tag tag-new">NEW</span>' : ''}</td>
+        <td class="name">${r['이름'] || '-'}</td>
+        <td class="phone">${r['연락처'] || '-'}</td>
+        <td><span class="tag tag-region">${r['거주지역'] || '-'}</span></td>
+        <td><span class="tag tag-career">${r['경력'] || '-'}</span></td>
+        <td style="color:var(--text-mute);font-size:12px;">${r['희망시간'] || '미선택'}</td>
+        <td style="color:var(--text-mute);font-size:12px;">${r['유입경로'] || '직접접속'}</td>
+      </tr>`;
+  }).join('');
+
+  // 페이지네이션
+  const pag = document.getElementById('pagination');
+  const info = document.getElementById('pageInfo');
+  const btns = document.getElementById('pageBtns');
+
+  pag.style.display = 'flex';
+  info.textContent = `총 ${total}건 중 ${start + 1}–${Math.min(start + PAGE_SIZE, total)}건`;
+
+  let btnHtml = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>◀ 이전</button>`;
+  const range = 2;
+  for (let p = Math.max(1, currentPage-range); p <= Math.min(totalPages, currentPage+range); p++) {
+    btnHtml += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
+  }
+  btnHtml += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>다음 ▶</button>`;
+  btns.innerHTML = btnHtml;
+}
+
+function goPage(p) {
+  currentPage = p;
+  renderTable();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── 유틸 ──
+function isNewToday(ts) {
+  const today = new Date().toISOString().slice(0, 10);
+  return String(ts).startsWith(today);
+}
+
+function formatTime(ts) {
+  if (!ts) return '-';
+  return String(ts).replace('T', ' ').slice(0, 16);
+}
+
+// ── CSV 내보내기 ──
+function exportCSV() {
+  if (allData.length === 0) { alert('내보낼 데이터가 없습니다.'); return; }
+
+  const headers = ['접수시간', '이름', '연락처', '거주지역', '경력', '희망시간', '유입경로'];
+  const rows = allData.map(r => headers.map(h => `"${String(r[h]||'').replace(/"/g,'""')}"`).join(','));
+  const csv = '﻿' + headers.join(',') + '\n' + rows.join('\n');
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `상담신청_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// 엔터키로 로그인
+document.getElementById('passwordInput').focus();
+</script>
+</body>
+</html>
