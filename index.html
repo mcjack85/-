@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인카다이렉트 위너스지사 | DNA 기반 보험설계사 모집</title>
+<meta name="description" content="정예인재 DB와 성균관대 공식 교육과정으로 시작하는 보험설계사. DB 걱정 없이 안정적인 수입을 만들어보세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --navy: #0A0E27;
+  --navy-2: #131840;
+  --blue: #2D4FFF;
+  --blue-light: #5B7BFF;
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  --gold: #FFD96B;
+  --text: #E8EAF6;
+  --text-mute: #8B92B8;
+  --line: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.04);
+  --grad: linear-gradient(135deg, #2D4FFF 0%, #7C3AED 100%);
+  --grad-soft: linear-gradient(135deg, rgba(45,79,255,0.15) 0%, rgba(124,58,237,0.15) 100%);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.wrap { max-width: 480px; margin: 0 auto; position: relative; z-index: 2; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(10,14,39,0.7);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 480px; margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-weight: 800; font-size: 15px;
+  letter-spacing: -0.02em;
+}
+.logo span {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-cta {
+  font-size: 12px; font-weight: 600;
+  padding: 8px 14px;
+  background: var(--grad);
+  color: white;
+  border-radius: 100px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 24px 40px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 60%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 80px; left: 0;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(45,79,255,0.25) 0%, transparent 60%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(167,139,250,0.3);
+  background: rgba(124,58,237,0.1);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--purple-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+.eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--purple-light);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+.hero h1 .accent {
+  background: linear-gradient(135deg, #FFD96B 0%, #FFA07A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-mute);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.hero-sub strong { color: var(--text); font-weight: 600; }
+
+.cta-primary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+  padding: 18px;
+  background: var(--grad);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 8px 30px rgba(45,79,255,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-primary:active { transform: scale(0.98); }
+.cta-primary svg { transition: transform 0.3s; }
+.cta-primary:hover svg { transform: translateX(4px); }
+
+.hero-badges {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 28px;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.hero-badge {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.hero-badge .check {
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  background: var(--grad);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* STATS */
+.stats {
+  padding: 16px 24px 40px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 24px 16px;
+  background: var(--grad-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+.stat { text-align: center; }
+.stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+}
+
+/* SECTION */
+section { padding: 70px 24px; position: relative; }
+
+.section-label {
+  font-family: 'Gowun Batang', serif;
+  font-size: 13px;
+  color: var(--purple-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.section-title .grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--text-mute);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+/* PROBLEM */
+.problem { background: linear-gradient(180deg, transparent 0%, rgba(124,58,237,0.05) 100%); }
+.problem-list {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.problem-item {
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex; align-items: flex-start; gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.problem-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--grad);
+  opacity: 0.5;
+}
+.problem-num {
+  font-family: 'Gowun Batang', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--purple-light);
+  line-height: 1;
+  margin-top: 2px;
+}
+.problem-text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+.problem-text small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-mute);
+  margin-top: 4px;
+}
+
+/* SOLUTION INTRO */
+.solution-intro {
+  padding: 28px 24px;
+  margin: 30px -24px;
+  background: var(--grad);
+  text-align: center;
+}
+.solution-intro p {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+.solution-intro p span { color: var(--gold); }
+
+/* FEATURES */
+.features {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.feature {
+  padding: 28px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.feature:hover {
+  border-color: rgba(167,139,250,0.3);
+  transform: translateY(-2px);
+}
+.feature::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 150px; height: 150px;
+  background: var(--grad-soft);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feature:hover::before { opacity: 1; }
+
+.feature-icon {
+  width: 48px; height: 48px;
+  background: var(--grad);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.feature-num {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-mute);
+  letter-spacing: 0.05em;
+}
+.feature h3 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.feature p {
+  font-size: 14px;
+  color: var(--text-mute);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+/* BENEFITS */
+.benefits {
+  background: linear-gradient(180deg, rgba(45,79,255,0.05) 0%, transparent 100%);
+}
+.benefit-grid {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.benefit {
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; gap: 18px;
+}
+.benefit-icon {
+  font-size: 32px;
+  width: 60px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--grad-soft);
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+.benefit-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.benefit-content p {
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.5;
+}
+
+/* TRUST */
+.trust { background: var(--navy-2); }
+.trust-cards {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.trust-card {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(45,79,255,0.1) 0%, rgba(124,58,237,0.1) 100%);
+  border: 1px solid rgba(167,139,250,0.2);
+  border-radius: 16px;
+}
+.trust-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--purple-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.trust-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+.trust-card p {
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+
+/* TESTIMONIAL */
+.testimonial-list {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.testimonial {
+  padding: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+.testimonial-quote {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.testimonial-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--grad);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+}
+.testimonial-info { font-size: 12px; }
+.testimonial-info strong { display: block; font-weight: 600; color: var(--text); font-size: 13px; }
+.testimonial-info span { color: var(--text-mute); }
+
+/* PROCESS */
+.process { background: var(--navy-2); }
+.process-list {
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.process-step {
+  display: flex; gap: 18px;
+  padding-bottom: 28px;
+  position: relative;
+}
+.process-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px; top: 40px; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--purple) 0%, transparent 100%);
+  opacity: 0.4;
+}
+.process-num {
+  width: 40px; height: 40px;
+  background: var(--grad);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.process-content { padding-top: 4px; }
+.process-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.process-content p {
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq-list {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.faq-q {
+  padding: 18px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--purple-light);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+  padding: 0 20px;
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.7;
+}
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 0 20px 18px;
+}
+
+/* FORM */
+.form-section {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  padding-bottom: 100px;
+}
+.form-wrap {
+  padding: 28px 22px;
+  background: linear-gradient(135deg, rgba(45,79,255,0.12) 0%, rgba(124,58,237,0.12) 100%);
+  border: 1px solid rgba(167,139,250,0.2);
+  border-radius: 20px;
+}
+.form-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.form-desc {
+  font-size: 13px;
+  color: var(--text-mute);
+  margin-bottom: 24px;
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.field label .req { color: var(--purple-light); margin-left: 2px; }
+.field input,
+.field select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(10,14,39,0.6);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--purple-light);
+}
+.field input::placeholder { color: rgba(139,146,184,0.5); }
+
+.checkbox-field {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 0;
+  font-size: 12px;
+  color: var(--text-mute);
+  line-height: 1.5;
+}
+.checkbox-field input { width: auto; margin-top: 2px; }
+.checkbox-field a { color: var(--purple-light); text-decoration: underline; }
+
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--grad);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px rgba(45,79,255,0.4);
+  transition: transform 0.2s;
+}
+.form-submit:active { transform: scale(0.98); }
+.form-note {
+  font-size: 11px;
+  color: var(--text-mute);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 24px 30px;
+  background: var(--navy);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+footer .logo { font-size: 16px; margin-bottom: 16px; }
+.footer-info {
+  font-size: 12px;
+  color: var(--text-mute);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.footer-copy {
+  font-size: 11px;
+  color: rgba(139,146,184,0.5);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* FLOATING CTA */
+.floating-cta {
+  position: fixed;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  width: calc(100% - 40px);
+  max-width: 440px;
+  display: none;
+}
+.floating-cta.show { display: block; animation: slideUp 0.4s ease; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+.floating-cta a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px;
+  background: var(--grad);
+  color: white;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 12px 40px rgba(45,79,255,0.5);
+}
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 32px; }
+  .section-title { font-size: 24px; }
+  .stat-num { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">인카다이렉트 <span>위너스</span></div>
+    <a href="#apply" class="nav-cta">상담 신청</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">DNA 기반 보험설계사 모집</div>
+  <h1>
+    만든 고객이 없어<br>
+    힘드셨다면<br>
+    <span class="accent">이제 달라집니다.</span>
+  </h1>
+  <p class="hero-sub">
+    정예인재 단독 DB와 성균관대 공식 교육과정으로 시작하는<br>
+    <strong>전문가형 보험설계사의 길.</strong> 지인영업 없이, 안정적으로.
+  </p>
+  <a href="#apply" class="cta-primary">
+    지금 무료 상담 신청
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span>성균관대학교 공식 정예인재부문 전문가 과정 이수</span>
+    </div>
+    <div class="hero-badge">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span>정예인재 전문기관 MOU · 단독 DB 이용</span>
+    </div>
+    <div class="hero-badge">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <span>신입·경력 모두 환영, 정착 지원 시스템</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" style="padding-top:0;">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">맞춤 DB 제공</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1:1</div>
+      <div class="stat-label">전담 멘토링</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">MOU</div>
+      <div class="stat-label">단독 제휴</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-label">Pain Point</div>
+  <h2 class="section-title">
+    혹시 이런<br>
+    <span class="grad">고민이 있으셨나요?</span>
+  </h2>
+  <p class="section-desc">
+    아마도 수많은 설계사들이 똑같이 겪는 문제.<br>
+    위너스지사는 그 해답을 시스템으로 만들었습니다.
+  </p>
+
+  <div class="problem-list">
+    <div class="problem-item reveal">
+      <div class="problem-num">01</div>
+      <div class="problem-text">
+        만든 고객이 없어 영업이 막막하다
+        <small>DB가 없으면 시작조차 어려운 현실</small>
+      </div>
+    </div>
+    <div class="problem-item reveal">
+      <div class="problem-num">02</div>
+      <div class="problem-text">
+        지인영업의 한계가 분명하다
+        <small>주변 사람이 떨어질 걱정, 영업도 멈춥니다</small>
+      </div>
+    </div>
+    <div class="problem-item reveal">
+      <div class="problem-num">03</div>
+      <div class="problem-text">
+        체계적인 교육 없이 혼자 버텨야 한다
+        <small>전문성이 없으면 신뢰를 만들 수 없습니다</small>
+      </div>
+    </div>
+    <div class="problem-item reveal">
+      <div class="problem-num">04</div>
+      <div class="problem-text">
+        수입이 들쑥날쑥하고 불안하다
+        <small>안정적인 시스템 없이는 미래가 불안합니다</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION INTRO -->
+<div class="solution-intro">
+  <p>위너스지사는 <span>전문가가 만드는 시스템</span>으로<br>이 모든 문제를 해결합니다.</p>
+</div>
+
+<!-- FEATURES -->
+<section>
+  <div class="section-label">Our Solution</div>
+  <h2 class="section-title">
+    3가지 핵심<br>
+    <span class="grad">차별화 시스템</span>
+  </h2>
+  <p class="section-desc">
+    단순한 보험회사가 아닙니다.<br>
+    설계사가 진짜 전문가로 성장할 수 있는 환경을 제공합니다.
+  </p>
+
+  <div class="features">
+    <div class="feature reveal">
+      <div class="feature-num">01</div>
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+      </div>
+      <h3>현실적 DB 관리·제공</h3>
+      <p>정예 전 검사 파트너사와 직접 공동 이용하는 단독 DB. 가공된 데이터가 아닌, 실제 검사를 받은 고객의 정확한 정보를 안정적으로 제공받습니다.</p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="feature-num">02</div>
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <h3>체계적인 전문가 교육</h3>
+      <p>성균관대학교에서 직접 진행하는 정예인재부문 전문가 과정. 회사가 대신할 수 없는 진짜 전문가 교육으로 설계사의 가치를 한 단계 높입니다.</p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="feature-num">03</div>
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="6"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+      </div>
+      <h3>지속적 최적지원</h3>
+      <p>정착 지원금, 교육비, 마케팅 비용까지. 신입은 안정적으로, 경력자는 더 빠르게 성장할 수 있는 가장 높은 수준의 지원 시스템입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-label">Your Benefits</div>
+  <h2 class="section-title">
+    함께하면<br>
+    <span class="grad">달라지는 것들</span>
+  </h2>
+  <p class="section-desc">
+    위너스지사에서 활동하는 설계사가 얻는<br>실질적인 변화입니다.
+  </p>
+
+  <div class="benefit-grid">
+    <div class="benefit reveal">
+      <div class="benefit-icon">💰</div>
+      <div class="benefit-content">
+        <h4>수입의 안정</h4>
+        <p>안정적인 DB로 만든 꾸준한 계약 건수</p>
+      </div>
+    </div>
+    <div class="benefit reveal">
+      <div class="benefit-icon">🚀</div>
+      <div class="benefit-content">
+        <h4>성장 기회</h4>
+        <p>팀 리쿠르팅을 통한 매니저·지점장 성장 경로</p>
+      </div>
+    </div>
+    <div class="benefit reveal">
+      <div class="benefit-icon">🧬</div>
+      <div class="benefit-content">
+        <h4>전문지식 향상</h4>
+        <p>성균관 인증 정예인재부문 전문가로서의 커리어</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="section-label">Why us</div>
+  <h2 class="section-title">
+    아무나 할 수 없는<br>
+    <span class="grad">우리만의 신뢰</span>
+  </h2>
+  <p class="section-desc">
+    위너스지사이 이 약속을 지킬 수 있는 이유는<br>실제로 보유한 자산이 다르기 때문입니다.
+  </p>
+
+  <div class="trust-cards">
+    <div class="trust-card reveal">
+      <div class="trust-card-label">🎓 ACADEMIC PARTNERSHIP</div>
+      <h4>성균관대학교 공식 교육과정 이수</h4>
+      <p>대표가 주축한 '성균관대학교 정예인재부문 전문가 과정'을 직접 진행. 대학과 협력하는 단 한 곳의 보험 조직입니다.</p>
+    </div>
+    <div class="trust-card reveal">
+      <div class="trust-card-label">🤝 EXCLUSIVE MOU</div>
+      <h4>정예인재 전문기관 단독 MOU</h4>
+      <p>정예 전 검사를 직접 수행하고 관리하는 회사와 전속 MOU를 체결. 인카다이렉트만의 단독 DB 생성이 가능합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+  <div class="section-label">Real Stories</div>
+  <h2 class="section-title">
+    먼저 시작한 분들의<br>
+    <span class="grad">진짜 이야기</span>
+  </h2>
+  <p class="section-desc">위너스지사에서 새로운 커리어를 만들고 있는<br>실제 설계사들의 후기입니다.</p>
+
+  <div class="testimonial-list">
+    <div class="testimonial reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"지인 영업의 한계에 있을 때 만난 곳. DB가 정말 제공된다는 것이 가장 큰 차이였어요. 첫 달부터 계약이 나오기 시작했습니다."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">K</div>
+        <div class="testimonial-info">
+          <strong>김○○ 설계사</strong>
+          <span>서울 · 경력 8개월차</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"성균관 교육과정을 다니면서 진짜 전문가가 되는 느낌. 고객들도 신뢰가 달라집니다. 명함에 내밀면 분위기가 달라져요."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">L</div>
+        <div class="testimonial-info">
+          <strong>이○○ 설계사</strong>
+          <span>경기 · 경력 1년차</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"신입으로 시작했는데, 시스템이 너무 잘되어있어요. 빠르게 정착했어요. 매주 교육이 진짜 도움 됩니다."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">P</div>
+        <div class="testimonial-info">
+          <strong>박○○ 설계사</strong>
+          <span>서울 · 신입 6개월차</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-label">How it works</div>
+  <h2 class="section-title">
+    상담부터 입사까지<br>
+    <span class="grad">단 4단계</span>
+  </h2>
+  <p class="section-desc">복잡한 과정 없이, 명확하게 진행됩니다.</p>
+
+  <div class="process-list">
+    <div class="process-step reveal">
+      <div class="process-num">1</div>
+      <div class="process-content">
+        <h4>상담 신청서 작성</h4>
+        <p>아래 양식으로 간단한 정보를 남겨주세요. 1분이면 충분합니다.</p>
+      </div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">2</div>
+      <div class="process-content">
+        <h4>1:1 전화 상담</h4>
+        <p>영업일 기준 1-2일 내 담당자가 연락. 부담 없이 궁금한 점을 모두 물어보세요.</p>
+      </div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">3</div>
+      <div class="process-content">
+        <h4>방문 면담 &amp; 교육</h4>
+        <p>직접 방문 후 시스템과 교육과정을 직접 확인. 결정은 그 다음에 하셔도 됩니다.</p>
+      </div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">4</div>
+      <div class="process-content">
+        <h4>입사 &amp; 활동 시작</h4>
+        <p>DB와 멘토링을 바탕으로 본격적인 활동 시작. 위너스지사이 함께합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">
+    자주 묻는<br>
+    <span class="grad">질문</span>
+  </h2>
+  <p class="section-desc">상담 전, 궁금한 점을 미리 확인해보세요.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">보험 경력이 전혀 없어도 가능한가요?</div>
+      <div class="faq-a">네, 신입도 환영합니다. 위너스지사의 체계적인 교육 시스템과 1:1 멘토링을 통해 처음부터 차근차근 배워나갈 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">초기 자본금이 필요한가요?</div>
+      <div class="faq-a">별도의 초기 자본금은 필요하지 않습니다. 교육비, 마케팅비 등 다양한 지원 정책이 있어 부담 없이 시작할 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">DB는 정말 무료로 제공되나요?</div>
+      <div class="faq-a">네, 정예인재 전문기관과의 MOU를 통해 확보한 보험 단독 DB를 설계사에게 제공합니다. 자세한 이용 방식은 상담 시 안내드립니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">근무 형태와 시간은 어떻게 되나요?</div>
+      <div class="faq-a">기본적으로 자율 근무이며, 정기 교육과 미팅이 있습니다. 본인의 페이스에 맞춰 일할 수 있는 환경입니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">교육 기간은 얼마나 걸리나요?</div>
+      <div class="faq-a">기초 교육은 약 2주 정도이며, 이후에는 지속적인 전문가 과정이 이어집니다. 성균관 공식 과정은 별도 일정으로 진행됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="apply">
+  <div class="section-label">Get Started</div>
+  <h2 class="section-title">
+    지금 무료로<br>
+    <span class="grad">상담 신청하기</span>
+  </h2>
+  <p class="section-desc">1분 안에 신청하고, 새로운 커리어의<br>첫걸음을 만들어보세요.</p>
+
+  <div class="form-wrap">
+    <div class="form-title">상담 신청서</div>
+    <p class="form-desc">영업일 기준 1-2일 이내 연락드립니다.</p>
+
+    <form id="contactForm">
+      <div class="field">
+        <label>이름<span class="req">*</span></label>
+        <input type="text" name="name" placeholder="홍길동" required>
+      </div>
+      <div class="field">
+        <label>연락처<span class="req">*</span></label>
+        <input type="tel" name="phone" placeholder="010-0000-0000" required>
+      </div>
+      <div class="field">
+        <label>거주 지역<span class="req">*</span></label>
+        <select name="region" required>
+          <option value="">선택해주세요</option>
+          <option>서울</option>
+          <option>경기</option>
+          <option>인천</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>보험 관련 경력<span class="req">*</span></label>
+        <select name="career" required>
+          <option value="">선택해주세요</option>
+          <option>없음 (신입)</option>
+          <option>1년 미만</option>
+          <option>1-3년</option>
+          <option>3년 이상</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>상담 희망 시간대</label>
+        <select name="time">
+          <option value="">선택해주세요 (선택사항)</option>
+          <option>오전 (09:00-12:00)</option>
+          <option>오후 (13:00-17:00)</option>
+          <option>저녁 (17:00-19:00)</option>
+        </select>
+      </div>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="agree" required>
+        <label for="agree">개인정보 수집·이용에 동의합니다. <a href="#">[자세히]</a></label>
+      </div>
+
+      <button type="submit" class="form-submit">📋 무료 상담 신청하기</button>
+      <p class="form-note">제출하신 정보는 안전하게 보관됩니다</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">인카다이렉트 <span>위너스</span></div>
+  <div class="footer-info">
+    정예 전 검사 기반 보험설계사의 새로운 패러다임<br>
+    Tel: 010-2702-0259 · Email: zmb5857@naver.com<br>
+    이용시간: 평일 09:00 - 18:00
+  </div>
+  <div class="footer-copy">© 2026 인카다이렉트 위너스지사. All rights reserved.</div>
+</footer>
+
+</div>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#apply">지금 무료 상담 신청 →</a>
+</div>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const floatingCta = document.getElementById('floatingCta');
+const heroEl = document.querySelector('.hero');
+const formEl = document.getElementById('apply');
+window.addEventListener('scroll', () => {
+  const heroBottom = heroEl.getBoundingClientRect().bottom;
+  const formTop = formEl.getBoundingClientRect().top;
+  if (heroBottom < 0 && formTop > window.innerHeight) {
+    floatingCta.classList.add('show');
+  } else {
+    floatingCta.classList.remove('show');
+  }
+});
+
+const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const submitBtn = form.querySelector('.form-submit');
+  const originalText = submitBtn.textContent;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = '전송 중...';
+  submitBtn.style.opacity = '0.6';
+  submitBtn.style.cursor = 'not-allowed';
+
+  const params = new URLSearchParams(window.location.search);
+  const utm = [
+    params.get('utm_source'),
+    params.get('utm_medium'),
+    params.get('utm_campaign')
+  ].filter(Boolean).join(' / ') || '직접 접속';
+
+  const data = {
+    name: form.name.value,
+    phone: form.phone.value,
+    region: form.region.value,
+    career: form.career.value,
+    time: form.time.value,
+    utm: utm
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    showThankYou();
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', { event_category: 'form', event_label: 'consultation' });
+    }
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
+
+  } catch (err) {
+    alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+    submitBtn.style.opacity = '1';
+    submitBtn.style.cursor = 'pointer';
+  }
+});
+
+function showThankYou() {
+  const formWrap = document.querySelector('.form-wrap');
+  formWrap.innerHTML = `
+    <div style="text-align:center; padding: 30px 10px;">
+      <div style="
+        width: 80px; height: 80px;
+        margin: 0 auto 24px;
+        background: var(--grad);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 10px 30px rgba(45,79,255,0.4);
+        animation: scaleIn 0.5s ease;
+      ">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h3 style="font-size:22px; font-weight:800; letter-spacing:-0.03em; margin-bottom:14px; line-height:1.3;">
+        상담 신청이<br>정상 접수되었습니다
+      </h3>
+      <p style="color: var(--text-mute); font-size:14px; line-height:1.7; margin-bottom: 24px;">
+        영업일 기준 <strong style="color:var(--purple-light);">1-2일 이내</strong>에<br>
+        담당자가 직접 연락드리겠습니다.
+      </p>
+      <div style="
+        padding: 16px;
+        background: rgba(10,14,39,0.4);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font-size: 12px;
+        color: var(--text-mute);
+        line-height: 1.6;
+      ">
+        💡 <strong style="color:var(--text);">긴급 문의</strong>가 필요하신 가요?<br>
+        <a href="tel:01027020259" style="color:var(--purple-light); text-decoration:none; font-weight:600;">📞 010-2702-0259</a>로 직접 전화 주세요
+      </div>
+    </div>
+    <style>
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.5); }
+        to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+  `;
+
+  document.querySelector('.form-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.querySelector('input[name="phone"]').addEventListener('input', (e) => {
+  let v = e.target.value.replace(/[^0-9]/g, '');
+  if (v.length > 3 && v.length <= 7) v = v.slice(0,3) + '-' + v.slice(3);
+  else if (v.length > 7) v = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7,11);
+  e.target.value = v;
+});
+</script>
+
+</body>
+</html>
